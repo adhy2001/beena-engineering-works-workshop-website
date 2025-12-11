@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2a2a2a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="lightGradient" cx="30%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#FF8F65;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:0" />
+    </radialGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+
+  <!-- Lighting effect -->
+  <ellipse cx="576" cy="432" rx="400" ry="300" fill="url(#lightGradient)"/>
+  <ellipse cx="1440" cy="648" rx="300" ry="200" fill="url(#lightGradient)" opacity="0.6"/>
+
+  <!-- Industrial elements -->
+  <g opacity="0.1">
+    <!-- Large gear -->
+    <circle cx="1500" cy="200" r="80" fill="none" stroke="#FF6B35" stroke-width="2"/>
+    <circle cx="1500" cy="200" r="40" fill="#FF6B35" opacity="0.3"/>
+    <!-- Gear teeth -->
+    <rect x="1498" y="120" width="4" height="15" fill="#FF6B35" opacity="0.5"/>
+    <rect x="1498" y="265" width="4" height="15" fill="#FF6B35" opacity="0.5"/>
+    <rect x="1420" y="198" width="15" height="4" fill="#FF6B35" opacity="0.5"/>
+    <rect x="1585" y="198" width="15" height="4" fill="#FF6B35" opacity="0.5"/>
+
+    <!-- Welding sparks -->
+    <circle cx="300" cy="800" r="3" fill="#FF6B35" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="320" cy="780" r="2" fill="#FF8F65" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="290" cy="820" r="1.5" fill="#FF6B35" filter="url(#glow)">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Structural beams -->
+    <rect x="100" y="900" width="200" height="8" fill="#666" opacity="0.3"/>
+    <rect x="150" y="850" width="8" height="100" fill="#666" opacity="0.3"/>
+    <rect x="250" y="870" width="8" height="80" fill="#666" opacity="0.3"/>
+  </g>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#FF6B35" stroke-width="0.5" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+</svg>
